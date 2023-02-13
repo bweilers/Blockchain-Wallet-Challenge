@@ -80,7 +80,7 @@ w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 # @TODO:
 # From `crypto_wallet.py import the functions generate_account, get_balance,
 #  and send_transaction
-from crypto_wallet import generate_account, get_balance,send_transaction
+from crypto_wallet import generate_account, get_balance ,send_transaction
 
 ################################################################################
 # KryptoJobs2Go Candidate Information
@@ -172,7 +172,8 @@ st.sidebar.write(account.address)
 # @TODO
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
-balance = account.get_balance(w3, account)
+# balance = get_balance(w3, account)
+balance = get_balance(w3=w3, address=account.address)
 st.sidebar.write(balance)
 
 ##########################################
@@ -298,6 +299,8 @@ if st.sidebar.button("Send Transaction"):
     """Questions for Orlando, 
     ....why don't you need to pass w3 here?
     ....Also do I need to change the code on line 175?"""
+    # transaction_hash = send_transaction(w3=w3, account=account, to=candidate_address, wage=wage)
+    # TEST
     transaction_hash = send_transaction(w3=w3, account=account, to=candidate_address, wage=wage)
 
     # Markdown for the transaction hash
